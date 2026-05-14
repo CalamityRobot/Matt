@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100vw;height:100vh;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{
+  0%,100%{filter:drop-shadow(0 0 28px #c00) drop-shadow(0 0 65px #600) drop-shadow(0 0 120px #400)}
+  50%    {filter:drop-shadow(0 0 50px #f00) drop-shadow(0 0 100px #a00) drop-shadow(0 0 180px #600)}
+}
+svg{width:80vmin;height:80vmin}
+.p{position:fixed;border-radius:50%;background:#900;opacity:0;animation:rise linear infinite}
+@keyframes rise{
+  0%  {transform:translateY(105vh) scale(.5);opacity:0}
+  8%  {opacity:.7}
+  92% {opacity:.3}
+  100%{transform:translateY(-5vh) scale(1.2);opacity:0}
+}
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<div class="wrap">
+<svg viewBox="-160 -160 320 320" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="ig" cx="42%" cy="40%">
+    <stop offset="0%"   stop-color="#ff4444"/>
+    <stop offset="28%"  stop-color="#d40000"/>
+    <stop offset="58%"  stop-color="#8b0000"/>
+    <stop offset="100%" stop-color="#360000"/>
+  </radialGradient>
+  <radialGradient id="pg" cx="38%" cy="35%">
+    <stop offset="0%"   stop-color="#200000"/>
+    <stop offset="100%" stop-color="#000000"/>
+  </radialGradient>
+  <radialGradient id="bg-glow" cx="50%" cy="50%">
+    <stop offset="0%"   stop-color="#1a0000" stop-opacity="1"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="1"/>
+  </radialGradient>
+</defs>
+
+<!-- Deep background halo -->
+<circle cx="0" cy="0" r="158" fill="#000"/>
+<circle cx="0" cy="0" r="155" fill="url(#bg-glow)" opacity="0.6"/>
+
+<!-- Iris -->
+<circle cx="0" cy="0" r="155" fill="url(#ig)"/>
+
+<!-- Outer texture ring -->
+<circle cx="0" cy="0" r="148" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
+
+<!-- Divider ring -->
+<circle cx="0" cy="0" r="108" fill="none" stroke="rgba(0,0,0,0.6)" stroke-width="3"/>
+<circle cx="0" cy="0" r="105" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="1"/>
+
+<!-- Inner divider ring -->
+<circle cx="0" cy="0" r="65" fill="none" stroke="rgba(0,0,0,0.45)" stroke-width="2"/>
+
+<!-- Rotating tomoe group -->
+<g>
+  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5s" repeatCount="indefinite"/>
+
+  <!-- Tomoe 1 — head at top -->
+  <g>
+    <circle cx="0" cy="-82" r="16" fill="#070000"/>
+    <ellipse cx="15" cy="-57" rx="13" ry="29" transform="rotate(22 15 -57)" fill="#070000"/>
+  </g>
+
+  <!-- Tomoe 2 — 120° -->
+  <g transform="rotate(120)">
+    <circle cx="0" cy="-82" r="16" fill="#070000"/>
+    <ellipse cx="15" cy="-57" rx="13" ry="29" transform="rotate(22 15 -57)" fill="#070000"/>
+  </g>
+
+  <!-- Tomoe 3 — 240° -->
+  <g transform="rotate(240)">
+    <circle cx="0" cy="-82" r="16" fill="#070000"/>
+    <ellipse cx="15" cy="-57" rx="13" ry="29" transform="rotate(22 15 -57)" fill="#070000"/>
+  </g>
+</g>
+
+<!-- Pupil -->
+<circle cx="0" cy="0" r="57" fill="url(#pg)"/>
+
+<!-- Pupil depth highlight -->
+<ellipse cx="-12" cy="-16" rx="14" ry="10" fill="rgba(70,0,0,0.3)" transform="rotate(-15)"/>
+
+<!-- Outer limbal ring -->
+<circle cx="0" cy="0" r="155" fill="none" stroke="rgba(0,0,0,0.7)" stroke-width="4"/>
+</svg>
+</div>
+
+<script>
+const bg = document.getElementById('bg');
+for (let i = 0; i < 55; i++) {
+  const p = document.createElement('div');
+  p.className = 'p';
+  const s = 0.8 + Math.random() * 3.5;
+  p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${8+Math.random()*14}s;animation-delay:-${Math.random()*18}s`;
+  bg.appendChild(p);
+}
+</script>
+</body>
+</html>
