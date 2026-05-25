@@ -3,7 +3,7 @@
 A native iPhone app for logging workouts, tracking body weight, and visualizing
 fitness progression over time. Built with SwiftUI and SwiftData.
 
-**Current version: 1.0.3**
+**Current version: 1.1.0**
 
 ---
 
@@ -15,6 +15,7 @@ fitness progression over time. Built with SwiftUI and SwiftData.
 - **Set editor** — log reps and weight per set with an lbs/kg toggle, plus a built-in rest timer (30 / 60 / 90 / 120s).
 - **Body weight** — log weigh-ins with a timestamp and watch the trend on a live line chart.
 - **Dashboard** — volume-per-session bars, personal records, body weight trend, a GitHub-style frequency heatmap, and current/longest streak tiles, all filterable by 1W / 1M / 3M / 1Y / All.
+- **Settings** — weight-unit preference, app version, and a link to check for updates on GitHub.
 
 ## Tech stack
 
@@ -59,6 +60,11 @@ Every change should add a Changelog entry and bump the version:
 - **MAJOR** — breaking changes or major redesigns.
 
 ## Changelog
+
+### 1.1.0 — 2026-05-24
+- Added a **Settings** tab with the app version, a weight-unit preference, and a "Check for Updates" link to the GitHub repository.
+- Exercise names in the picker are now lime green for better contrast against the dark list background.
+- Added a **Done** button above the number pad in the set editor and body-weight entry so the keyboard can be dismissed.
 
 ### 1.0.3 — 2026-05-24
 - Fixed the Xcode project's missing app product reference, which left the Run button greyed out (Build worked but the app never installed/launched).

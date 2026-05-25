@@ -34,6 +34,9 @@ struct RootView: View {
 
             DashboardView()
                 .tabItem { Label("Dashboard", systemImage: "chart.xyaxis.line") }
+
+            SettingsView()
+                .tabItem { Label("Settings", systemImage: "gearshape") }
         }
     }
 }

@@ -35,7 +35,13 @@ struct SetEditorView: View {
         }
         .navigationTitle(exercise.name)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar { EditButton() }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) { EditButton() }
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") { hideKeyboard() }
+            }
+        }
     }
 
     private func addSet() {

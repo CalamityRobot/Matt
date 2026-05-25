@@ -46,6 +46,10 @@ struct BodyWeightEntryView: View {
                     Button("Save") { save() }
                         .disabled((weight ?? 0) <= 0)
                 }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") { hideKeyboard() }
+                }
             }
         }
     }

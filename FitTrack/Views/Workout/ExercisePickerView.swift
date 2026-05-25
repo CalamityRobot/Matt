@@ -29,7 +29,9 @@ struct ExercisePickerView: View {
                                 onAdd(item.name, item.muscleGroup)
                                 dismiss()
                             } label: {
-                                Text(item.name).foregroundStyle(.primary)
+                                Text(item.name)
+                                    .foregroundStyle(Color.lime)
+                                    .fontWeight(.medium)
                             }
                         }
                     }
