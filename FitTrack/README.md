@@ -3,7 +3,7 @@
 A native iPhone app for logging workouts, tracking body weight, and visualizing
 fitness progression over time. Built with SwiftUI and SwiftData.
 
-**Current version: 1.0.2**
+**Current version: 1.0.3**
 
 ---
 
@@ -59,6 +59,9 @@ Every change should add a Changelog entry and bump the version:
 - **MAJOR** — breaking changes or major redesigns.
 
 ## Changelog
+
+### 1.0.3 — 2026-05-24
+- Fixed the Xcode project's missing app product reference, which left the Run button greyed out (Build worked but the app never installed/launched).
 
 ### 1.0.2 — 2026-05-24
 - Redesigned the app icon: white bench silhouette on a blue gradient for better legibility at small sizes.
